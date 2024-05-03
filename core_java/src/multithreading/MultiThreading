@@ -1,0 +1,690 @@
+MultiThreading :
+---------------
+1. Intro0duction
+2.the way to define a Thread.
+	1. by extending Thread class.
+	2. by implementing Runnable Interface.
+	
+3. Getting & Setting name of Thread.
+4. Thread Priority
+5.the methods to prevent thread execution .
+	1.yield()
+	2.join()
+	2.sleep()
+6.synchronization	
+7.inter-thread communication.
+8.Deadlock 
+9.Deamon thread
+10.multi-threading enhancement.
+--------------------------------------
+
+**Introduction**
+
+* Multitasking : Executing saveral task  simultenously.is the concept of multitasking.
+Example : In the class room students are : 
+	1. Listening the class.
+	2. Taking Running notes.
+	3. checking the mobile phones.
+	4. Sleeping
+	5. Observing Environment.
+
+* Multitasking is divided into two categaries.
+	1. Process-based 
+	2. Thread-based
+	
+1. Process-based multi-tasking : Executing several task simultanuosly where each task is separate independent program(process).is called process-besed multitasking.
+	Example :while typing a java program in the editor we can liston from same system.
+			 1. Typing a java program in the editor.
+			 2. Listening audio songs.
+			 3. download a file from the net. 
+			
+Note: Its is best suitable at OS level.At programetic level thread-besd multi-threading is best suitable.
+	
+2. Thread-besed Multitasking : Executing several task somultaniosly where  each task is a seperate independent part of the same program. is called thread-besed multitasking & each independent part is a thread.
+	thread-based multitasking is best suitable at programetic level.
+	
+Note :1. whethere it process best or thread best the main objective of multi-tasking is to reduce response time of the system and to improve performance.
+	
+	  2. the main important application areas of multi-threading are to develop multi-media grafics , to develop animations, to develop video games , to develop web server & application servers etc..,
+	
+	  3. when compared with the old languages developing multithreaded application in java is very easy because java provide in-build support with rich api.
+	
+Thread is flow of execution , independent job or api process.
+thread is a seperate flow of execution.for every thread there is seperate independed job.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+**2 Defining a Thread 
+------------------------
+
+we can define a Thread in two ways : 
+	1. by extending Thread class.
+	2. by implementing Runnable Interface. 
+	
+** How we can define a thread.
+---------------------------------
+	package multithreading;
+
+class MyThread extends Thread {//define a thread
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println("child thread"); //job of thread
+		}
+	}//Executed by child thread
+}
+
+public class P1 {
+
+	public static void main(String[] args) {//main Thread
+		MyThread t = new MyThread();// Thread instantiation
+		t.start(); // starting of a Thread.
+		for(int i=0; i<10; i++) {
+			System.out.println("Main Thread");
+		}//executed by main Thread
+
+	}
+
+}
+	
+Case1: Thread Scheduler : it is the part of JVM ,it is responsible to schedule Threads that is if multiple threads are waiting to get chance of execution then in which order threads will be executed is decided by Thread-Schedular.we cant expect exect algorithm followed by thread schedular it is varied from JVM To JVM . we cant expect threads execution order and exect output . hence whenever situation comes throw multithreadihng there is no graunty for exect output but we can provide several possible outputs. 
+	
+	the following are the various possible outputs.
+	
+	
+	p1
+	
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	
+	p2
+	
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	
+	p3
+	
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	
+	p4
+	
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread 
+	child thread
+	main thread
+	
+	case2 : Difference between t.start() & t.run().
+	
+	in the case of t.start() a new thread will be created which is responsible for the execution of run() method,
+	 but in the case of t.run() a new thread want be created and run method will executed just like a normal method call by main thread .
+	 hence in the above program if we replace t.start() with t.run() then the output is 
+	 
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	child thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	main thread
+	
+	this total output produced  by only main Thread.
+	
+	
+*Case3 : Importance of THread Class start().
+
+Thread class start() is responsible to register the Thread with thread scheduler and all other mandatory activities . hence without executing thread class start() method, there is no chance of starting a new thread in java due to these thread class start()method is considered as heart of multi-threading .
+
+start(){
+
+	1. Register the thread with thread scheduler.
+	2. Perform all the mandatory activities 
+	3. Invoke run().	
+}	
+	
+
+*Case4 : overloading of run() method 
+
+	Overloading of run() method is always possible but Thread class start() method can invoke no-arg run() method.the other overloaded method we have to call explicitly like a normal method call.
+	
+Example :- 
+
+	
+package multithreading;
+ class MyThread1 extends Thread{
+	public void run() {
+		System.out.println("No-arg");
+	}
+	
+	public void run(int i) {
+		System.out.println("int-arg"); // overloaded method
+	}
+}
+public class P2 {
+
+	public static void main(String[] args) {
+		MyThread1 t = new MyThread1();
+		t.start();
+
+	}
+
+}
+
+output : NO-arg .
+
+*Case5 :- If we are not overriding run() method .  
+	
+	
+	if you are not overriding then thread class run() method will be executed which has empty implimentetion hence we want get any output.
+	
+	
+	Example :
+	
+	 package multithreading;
+class MyThread2 extends Thread{
+	public void run() {
+	
+	}
+public class P3{
+
+	public static void main(String[] args) {
+		MyThread1 t = new MyThread1();
+		t.start();
+
+	}
+
+}
+}
+	
+Note : It is highly recommanded to override run() method otherwise don't go for multhithreading concept.
+	
+	
+Case6 :- Overriding of start() method
+ 
+if you override start() method then our start() method will be executed just like a normal method call and new thread want be created.
+
+Example : 
+
+package multithreading;
+class MyThread3 extends Thread{
+	public void start()
+	{
+		System.out.println("Start Method");
+		}
+	public void run() {
+		System.out.println("run method");
+	}
+}
+public class P4 {
+
+	public static void main(String[] args) {
+		MyThread3 t = new MyThread3();
+		t.start();
+		System.out.println("main thread");
+
+	}
+}
+
+Output : Start method 
+		 main method	// produced by only main Thread	
+	
+Note : It is not recomanded to override start() method otherwise don't go for multithreading concept.
+	
+Example : 
+
+package multithreading;
+class MyThread4 extends Thread{
+	public void start()
+	{
+		super.start();
+		System.out.println("Start Method");
+		}
+	public void run() {
+		System.out.println("run method");
+	}
+}
+public class P5 {
+
+	public static void main(String[] args) {
+		MyThread3 t = new MyThread3();
+		t.start();
+		System.out.println("main thread");
+	}
+} 
+
+case 8: life-cycle of thread 
+
+case 9 : After staring a thread if you are trying to restart the sames thread then we will get run time exception saying IllegalThreadStateException.
+		
+	Example : 
+	
+	Thread t = new Thread();
+	t.start();
+	.
+	.
+	.
+	t.start(); //IllegalThreadStateException	
+		
+		
+-----------------------------------------------------------------------------------
+
+** Defining a Thread by Implementing Runnable Interface
+
+We can define a Thread by Implementing Runnable Interface . 
+	
+		
+						Runnable (Interface)
+								|
+					____________|____________
+					|						|
+					|						|	
+				Thread(Class)			MyRunnable
+					|
+					|
+				MyThread
+				
+				1st Approach			2nd Approach
+		
+	
+	Runnable Interface present in java.lang package and it contains only one method. [run() method]	
+
+Example : 
+
+package multithreading;
+
+public class P6 {
+	class MyRunnable implements Runnable{
+		public void run() {
+			for(int i=0; i<10; i++) {//Job of Thread
+				System.out.println("Child Thread");//executed by child Thread
+			}
+		}
+	}
+	public static void main(String[] args) {
+		MyRunnable r = new MyRunnable();
+		Thread t = new Thread(r);//r is target Runnable
+		t.start();
+		for(int i=0; i<10; i++) {
+			System.out.println("Main Thread");//executed by main Thread
+		}
+
+	}
+
+}
+
+
+We will get mixed output and we can't tell exect output	
+	
+	
+package multithreading;
+
+
+	class MyRunnable1 implements Runnable{
+		public void run() {
+			for(int i=0; i<10; i++) {//Job of Thread
+				System.out.println("Child Thread");//executed by child Thread
+			}
+		}
+	}
+	
+	public class P7 {
+		public static void main(String[] args) {
+		MyRunnable1 r = new MyRunnable1();
+		Thread t = new Thread();//r is target Runnable
+		t.start();
+		for(int i=0; i<10; i++) {
+			System.out.println("Main Thread");//executed by main Thread
+		}
+
+	}
+
+}
+	
+	
+	
+	MyRunnable r = new Runnable();
+	Thread t1 = new Thread();
+	Thread t2 = new Thread(r);
+	
+	
+	case1: t1.start();
+	case2: t1.run();
+	case3: t2.start();
+	case4: t2.run();
+	case5: r.start();//CE: cannot find symbol . Symbol : method start(), Location : class MyRunnable .
+	case6: r.run(); 
+	
+	
+	t.start() : a new thread will be created and which is responsible for the execution of thread class run() method which has empty implementation.
+	
+	t.run() : 	no new thread will be created and thread class run()method will exceted just like a normal method call .
+	
+	t2.start() : a new thread will be created which is responsible of the execution of MyRunnable class run() method .
+	
+	t2.run() : a new want be created and MyRunnable class will be executed just like a normal method call.
+	
+	r.start() : we will get compile time error saying MyRunnable class doesn't have start capability. CE: MethodStart(), LOcation: MyRunnable 
+	
+	r.run() : no new thread will be created and MyRunnable run() method will be executed like normal method call .
+	
+	
+** Which Approach is best for to define a Thread.
+
+Among two ways of defining a Thread Implements Runnable approach is recommended.
+
+	In the first approach our class extend Thread class, there is no chance of extending any other class. hence we are missing inheritance benifites.
+	
+	but in the second approach while implementing Runnable interface we can extend any other class .hence we can't miss any inheritence benifites.
+	
+	because of above rision implementing Runnable interface is recommended then extending Thread class. 
+	
+	
+** Thread class constuctors : 
+	
+	1. Thread t = new Thread();
+	2. Thread t = new Thread(Runnable r);	
+	3. Thread t = new Thread(String name);
+	4. thread t = new Thread(Runnable r , String name);
+	5. thread t = new Thread(ThreadGroup g , String name);
+	6. thread t = new Thread(ThreadGroup r, Runnable r);
+	7. thread t = new Thread(ThreadGroup g ,Runnable r , String name);
+	8. thread t = new Thread(ThreadGroup g ,Runnable r , String name , long stacksize);
+
+	
+	Example: 
+	
+	package multithreading;
+
+class MyThread6 extends Thread{
+
+	@Override
+	public void run() {
+		System.out.println("Child Thread");
+	}
+}
+
+public class P8 {
+
+	public static void main(String[] args) {
+		MyThread6 t= new MyThread6();
+		Thread t1 = new Thread(t);
+		t1.start();
+		System.out.println("Main Thread");
+	}
+}
+ 
+//Output 1: Child Thread 
+//		   Main Thread
+//
+//2 . Main Thread
+//	  Child Thread
+	
+	
+** Getting and Setting name of a thread 
+	
+	every thread in java has some name. it may be default name generated by JVM or customized the name provided by programmer .
+		 
+	We can get and set name of a Thread by using the following two methods of Thread class . 
+	
+	1.public final String getName()
+	
+	2.public final void setName(String name)
+	
+	Example : 
+	
+package multithreading;
+class MyThread9 extends Thread {
+	
+}
+public class P9 {
+
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getName());//main
+		MyThread9 t = new MyThread9();
+		System.out.println(t.getName());//Thread-0
+		Thread.currentThread().setName("Dipanshu Namdev");
+		System.out.println(Thread.currentThread().getName());//Dipanshu Namdev
+		System.out.println(10/0);// CE 
+	}
+}
+
+Note : We can get current executing thread object by using Thread.currentThread() method . 
+
+Example : 
+
+package multithreading;
+class MyThread10 extends Thread {
+	public void run() {
+	System.out.println("run method executed by Thread : "+Thread.currentThread().getName());
+	}
+}
+public class P10 {
+
+	public static void main(String[] args) {
+		MyThread10 t= new MyThread10();
+		t.start();
+		System.out.println("main method executed by Thread : "+Thread.currentThread().getName());
+	}
+
+}
+
+Output : main method executed by Thread : main
+		 run method executed by Thread : Thread-0
+
+-------------------------------------------------------------------
+
+** Thread Priorities **
+
+Every Thread in java has some priority . It may be default priority generated by JVM or customized priority provided by programmer . 
+
+the valid rang of Thread priorities is 1 to 10 . where 1 is min priority and 10 is max priority .
+
+Thread class defines the following constence to represent some standard priorities .
+
+
+thread.MIN_PRIORITY ---1
+
+Thread.NORM_PRIORITY --5
+
+Thread.MAX-PRIORITY--10
+
+Thread.LOW_PRIORITY--// invalid
+
+Thread.HIGH_PRIORITY--// invalid
+
+
+Thread Scheduler will use the priorities while allowcating processor the Thread which is having highest priority will get the chance first.
+if two Threads having same priority then we cant expect exact execution order.it depends on Thread scheduler . 
+
+
+Thread class defines a following methods to get & get Thread priorities .
+
+public final int gerPriority();
+
+public final void setPriority(int p ); Allowed values range : 1 to 10 ;
+ 
+ otherwise RE : IlligalArgumentExeptiom 
+ 
+ t.setPriority(7); // valid
+ t.setPriority(17); // invalid
+ 
+ **  Default Priority ** 
+ 
+ the default priority only for the main Thread is 5. but for all remaining Threads default priority will be inherited from parent to child that is whatevert priority parent thread has the same priority will be there for the child thread.
+ 
+Example : 
+
+package multithreading;
+class MyThread11 extends Thread {
+	
+}
+public class P11 {
+
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getPriority()); // 5
+//		Thread.currentThread().setPriority(17); RE : IlligalArgumentException
+		Thread.currentThread().setPriority(7);// line 1 
+		System.out.println(Thread.currentThread().getPriority());//7
+		
+		MyThread11 t = new MyThread11();
+		System.out.println(Thread.currentThread().getPriority());//7
+	}
+}
+
+If we comment line 1 then child thread priority will become 5 . 
+ 
+MyThread11 t = new MyThread11();
+
+note : the parent class of MyThread11 is Thread class .\
+		The parent Thread of MyThread class is Main Thread.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
