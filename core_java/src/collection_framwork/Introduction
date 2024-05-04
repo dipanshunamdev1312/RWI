@@ -1,0 +1,84 @@
+
+** What is the need of Collection Framework ? ** 
+
+An array is an indexed Collection of fixed number of homogeneous data elements.
+The Main advantage of Array is we can represent multiple values with a single variable.
+so that re-usability of the code will be improved .
+
+Limitations of Object type Arrays:
+
+1.Array are fixed in size i.e. once we created an array with some size there is no chance of increasing or decreasing it's size based on our requirement . Hence to use arrays compulsory we should know the size in advance which may not possible always.
+
+2.Arrays can hold only homogeneous data elements. 
+Ex. 
+	Student[] s = new Student[10000];
+	s[0] = new Student(); // correct 
+	s[1] = new Customer(); // wrong 
+	
+	but we can resolve this problem by using object Arrays.
+	Object[] o = new Object[10000];
+	o[0] = new Student();
+	o[1] = new Customer();
+	
+3.Arrays Concept is not implemented based on some standard data structure hence readymade method support is not available for every required we have to write the code explicitly. Which is complexity of programming .
+
+** Need of Collections ** 
+
+ To overcome the above limitations of Arrays we should go for Collections. 
+ 
+ Collections are growable in nature i.e. Based on our requirement we can increase (or) Decrease the size .
+ 
+ Collection can hold both homogeneous & heterogeneous elements.
+ 
+ Every Collection class is implemented based on some standard data structure . Hence readymade method support is available for every requirement. Being a programmer we have to use this method and we are not responsible to provide implementation.
+ 
+ 
+ ** Difference between Arrays & Collections. ** 
+ 
+ Arrays : 1. Fixed in size. 
+ 		  2. With respect to memory Arrays are not recommended to use . 
+ 		  3. WRT performance Arrays are good. 
+ 		  4. Arrays can hold only homogeneous elements .
+ 		  5. underlying data structure not available . ready made method is not available .
+ 		  6. Primitive and Object we can hold.
+ 		  
+ Collections : 1. Growable in nature.
+ 			   2. With respect to memory Collections are recommended to use .
+ 			   3. WRT performance Collections are not recommended to use .
+ 			   4. Homogeneous and Heterogeneous elements can hold. 
+ 			   5. Underlying data structure available . Thats why ready made methods is available.
+ 			   6. Only Objects we can hold not primitives .
+ 
+ 
+ ** What is Collection ? ** 
+ 
+ 	If we want to represent a group of individual objects as a single entity then we should go for Collection.
+ 
+ ** What is Collection Framework ? ** 
+ 
+ 	It defines several classes and interfaces which can be used a group of objects as single entity. 
+ 
+ 
+	 		Java						C++
+ 
+ 		Collection					Container 
+ 		
+ 		Collection framework		STL(Standard Template Library)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
