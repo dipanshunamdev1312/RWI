@@ -1,0 +1,226 @@
+** 9 - Key Interfaces of Collection Framework . ** 
+
+1. Collection : 
+
+	If we want to represent a group of individual objects as a single entity then we should go for Collection.
+	
+	Collection interface defines the most common methods which are applicable for any Collection object.
+	
+	In general collection interface is considered as root interface of collection Framework .
+	
+Note : There is no concrete class which implements collection interface directly.
+
+
+** Difference between Collection & Collections. ** 
+
+	Collection is an interface which can be used to represent a group of individual object as a single entity.
+	
+	Collection is an utility class present in java.util.package to define several utility methods(like Sorting , Searching..) for Collection objects.
+	
+	
+** 2.List Interface ** 
+
+					Collection(1.2v)
+							|
+							|
+						List(I)(1.2v)
+							|
+							|
+		ArrayList(1.2v)		LinkedList(1.2v)		Vector(1.0v)
+														|
+														|
+													Stack(1.0v)
+													
+Note : Vector & Stack classes are re-enginner in 1.2v to implement list interface.
+
+
+**3. Set interface ** 
+
+* It is the child interface of Collection.
+* If we want to represent a group of individual objects as a single entity where duplicates are not allowed and insertion order not preserved then we should go for Set.
+
+					Collection(I)(1.2v)
+							|
+							|
+							|
+						Set(I)(1.2v)
+							|
+							|
+						HashSet(C)(1.2v)
+							|
+							|
+						LinkedHashSet(C)(1.4v)
+						
+
+** Differences between list and set **
+	
+			List				|		Set
+								|
+* Duplicates are allowed .		|	* Duplicates are not allowed.
+* Insertion order preserved. 	|	* Insertion order not preserved.
+----------------------------------------------------------------------
+
+
+** 4.SortedSet Interface ** 
+
+* it is the child interface of set.
+* if we want to represent a group of individual object as a single entity where duplicates are not allowed but all objects should be inserted according to some sorting order then we should go for SortedSet.
+
+
+					Collection(I)(1.2v)
+						|
+						|
+					Set(I)(1.2v)
+						|
+						|
+					SortedSet(I)
+						(1.2v)
+
+
+
+**5. NavigableSet interface **
+
+	* it is the child interface of SortedSet if defines several methods for navigation purposes.
+
+					Collection(I)(1.2v)
+						|
+						|
+					Set(I)(1.2v)
+						|
+						|
+					SortedSet(I)
+						(1.2v)
+						|
+						|
+					NavigableSet(I)
+							(1.6v)
+						|
+						|
+					TreeSet(C)
+							(1.2v)
+
+
+**6.Queqe interface ** 
+
+	* it is child interface of Collection .
+	* if we wamt to represent a group of individual objects prior to processing then we should go for Queqe.
+	
+Ex. before sending a mail all mail id's we have to store somewhere and in which order we saved in the same order mail's should be delivered (first in first out) for this requirement Queqe concept is the best choice.
+
+
+					Collection(I)(1.2v)
+						|
+						|
+					Queqe(I)(1.5v)
+						|
+						|
+	PriorityQueqe				BlockingQueqe(1.5v)
+		(1.5v)
+										|
+										|- LinkedBlockingQueqe(1.5v)
+										|
+										|- PriorityBlockingQueqe(1.5v)
+										|
+										
+
+Note : 
+
+* all the above interface(Collection , List,Set,SortedSet,NavigableSet and Queqe) meant for representing a group of individual objects.
+
+* if we want to represent a group of objects as key value pairs then we should go for Map Interface.
+
+
+
+** 7. Map interface ** 
+
+* Map is not child interface of Collection.
+
+* If we want to represent a group of individual objects as key value pairs then should go for Map.
+
+Ex: Roll No. 		Name
+	101				Durga
+	102				Ravi
+	103				Venkat
+	
+	Both key and values are objects, duplicates keys are not allowed but values can be duplicated.
+
+
+														Map(I)(1.2)
+															|
+														|		|		Dictionary(1.0)
+													|				|		|
+												|						|	|
+											|	|							|
+										|		|							|
+									|			|						Hashtable(1.0)
+								|				|							|	
+							|					|							|
+						|	|					|							|
+					|		|					|							|
+				|			|				IdentityHashMap(1.4)		Properties(1.0)
+			|				|
+		|				WeakHashMap(1.2)
+	HashMap(1.2)
+		|
+		|
+	LinkedHashMap(1.4)
+										
+
+** 8. SortedMap Interface ** 
+
+*it is the child interface of Map.
+
+* if we want to represent a group of key value pairs according to some sorting order of keys then we should go for SortedMap.
+
+				Map(I)(1.2)
+					|
+					|
+					|
+				SortedMap(I)(1.2)
+
+
+
+**9. NavigableMap Interface **
+
+* It is the child interface of sorted map , it defines several utility methods for navigation purpose.
+				Map(I)(1.2)
+					|
+						|
+							|
+								|
+							SortedMap(I)(1.2)
+									|
+									|
+									|
+								NavigableMap(I)(1.6)
+									|
+									|
+									|
+								TreeMap(1.2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
