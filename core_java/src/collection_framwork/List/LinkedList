@@ -1,0 +1,81 @@
+LinkedList: 
+
+1. The underlying data structure is Double Linked List.
+
+2. Insertion order is preserved.
+
+3. Duplicates are allowed.
+
+4. Heterogeneous Objects are allowed.
+
+5. Null insertion is possible.
+
+6. LikendList is the best choice if our frequent operation is insertion or deletion in the middle.
+
+7. LinkedList is the worst choice if our frequent operation is retrieval operation.
+
+6. LinkedList implements Serializable and Clonable interfaces but not RandomAccess interface.
+
+7. Usually we can use LinkedList to implement stacks and queques to provide support for this requirement LinkedList class defines following specific methods.
+
+			void addFirst();
+			void addLast();
+			Object getFirst();
+			Object getLast();
+			Object removeFirst();
+			Object removeLast();
+			
+8. Constructors : 
+
+		1. LinkedList l = new LinkedList();
+			Creates an empty LinkedList Object
+		
+		2. LinkedList l = new LinkedList(Collection c);
+			creates an equivalent LinkedList Object for the given Collection.		
+
+
+9. differences between ArrayList & LinkedList .
+
+ArrayList : 
+
+		1. it is the best choice if our frequent operation is retrieval.
+		2. Arraylist is the worst choice if our frequent operation is insertion or deletion .
+		3. Underlying data structure for ArrayList is resizable or growable Array.
+		4. ArrayList implements RandomAccess interface.
+		
+LinkedList :
+
+		1. It is the best choice if our frequent Operation is insertion & deletion.
+		2. LinkedList is the worst choice if our frequent operation is retrieval operation.
+		3. Underlying data is Double Linked List.
+		4. LinkedList doesn't implement RandomAccess interface.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

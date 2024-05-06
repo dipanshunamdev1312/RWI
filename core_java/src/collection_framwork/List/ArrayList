@@ -53,18 +53,42 @@ ArrayList
 
 	ArrayList : 
 	
-	*
+	*Every method present in Arraylist is non synchronize.
+	
+	*At a time multiple threads are allowed to operate on ArrayList Object and hence ArrayList is not thread safe.
+	
+	*Thread are not required to wait to operate on ArrayList, hence relatively performance is high.
+	
+	*Introduced in 1.2 version and it is non legacy class.
+	
 	
 	Vector : 		
+	
+	* Every method present in LinkedList is synchronize.	
+		
+	* At a time only one thread is allowed to operate on Vector Object is Thread safe.
+	
+	* Threads are required to wait to operate on Vector Object and hence relatively performance is low.
+	
+	* Introduced in 1.0 version and it is a legacy class.	
 		
 		
+** How to get Synchronized Version of ArrayList Object. ** 
+
+	ArrayLIst l1 = new ArrayList(); // l1 is non - synchronized .
+	
+	List l = Collections.synchronizedList(l1);	// 	l is synchronized 
+	
+	* by default ArrayList Object is non-synchronized but we can get synchronized version of ArrayList by using Collection class synchronizedList() method.
+	
+	public static List synchronizedList(List l);
 		
 		
-		
-		
-		
-		
-		
+	Similarly we can get Synchronized version of Set, Map Objects by using the following methods of Collections Class.
+	
+			Public static Set synchronizedSet(Set s);
+			
+			Public static Map synchronizedMap(Map m);	
 		
 		
 		

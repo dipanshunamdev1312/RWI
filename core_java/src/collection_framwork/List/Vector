@@ -1,0 +1,11 @@
+Vector : 
+
+	1. The underlying Data Structure for the vector is resizable array or growable array.
+	2. Duplicate objects are allowed.
+	3. Insertion order is preserved.
+	4. null insertion is possible.
+	5. Heterogeneous objects are allowed.
+	6. Vector class implements Serializable, Cloneable and RamdomAccess Interface.
+	7. Most of the methods present in Vector are synchronized. Hence Vector object is Thread-safe.
+	8. Best choice if the frequent operation is retrieval.
+	 
