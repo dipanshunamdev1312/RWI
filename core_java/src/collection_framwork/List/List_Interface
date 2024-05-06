@@ -1,0 +1,17 @@
+List Interface 
+
+* it is the child interface of collection.
+* if we want to represent a group of individual objects as a single entity where duplicates are allowed and insertion order must be preserved then we should go for List.
+* we can differentiate duplicates by using index.
+* we can preserve insertion order by using index , hence index play very important role in list interface.
+
+** List interface specific methods ** 
+
+	void add (int index , Object o)
+	boolean addAll(int index, Collection c)
+	object remove(int index)
+	object get(int index)
+	object set(int index , Object new)
+	int indexOf(Object o)
+	int lastIndexOf(Object o)
+	ListIterator listItrator();

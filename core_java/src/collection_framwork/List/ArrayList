@@ -1,0 +1,85 @@
+** ArrayList **
+
+	* The underlined data structure Resizable Array or Growable Array .
+	* Duplicates are allowed.
+	* Insertion order is preserved.
+	* Heterogeneous objects are allowed [except TreeSet & TreeMap everywhere heterogeneous objects are allowed].
+	* Null insertion is possible.
+	
+	Constuctors : 
+	
+	1.ArrayList al = new ArrayList();
+	
+	Creates an empty Array list object with default initial capacity 10.
+	once Array List reaches its map capacity a new Array List will be created with new capacity = (current-capacity * 3/2) +1.
+	
+	2.ArrayList al = new ArrayList(int initialCapacity);
+	
+	3.ArrayList al = new ArrayList(Collection c);
+	
+	
+	* Usually we can use Collection to hold and transfer Objects from one place to another place , to provide support for this requirement every Collection already implements Serializable and Cloneable interface.
+	
+	* ArrayList and Vector classes implements RandomAccess interface so that we can access amy Random element with the same speed.
+	
+	* Hence if our frequent operation is retrieval operation then ArrayList is the best choice.
+	
+** RandomAccess ** 
+------------------
+
+* Present in java.util.package.
+
+* It doesn't contain any methods and it is a Marker interface.
+
+ArrayList
+=========
+
+	ArrayList l1 = new ArrayList();
+		LinkedList l2 = new LinkedList();
+		
+		System.out.println(l1 instanceOf Serializable); // true
+		System.out.println(l2 instanceOf Cloneable); // true
+		System.out.println(l1 instanceOf RandomAccess);//true
+		System.out.println(l1 instanceOf RandomAccess);//false
+		
+	
+	* ArrayList is best choice if our frequent operation is retrieval operation (Because ArrayList implements RandomAccess interface).
+	
+	* ArrayList is the worst choice if our frequent operation is insertion or deletion in the middle (Because several shift operation are require).	
+		
+		
+		
+** Difference between ArrayList & Vector ** 
+
+	ArrayList : 
+	
+	*
+	
+	Vector : 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
