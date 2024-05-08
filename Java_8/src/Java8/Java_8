@@ -1,0 +1,59 @@
+Java 8 New Features : 
+----------------------
+
+concise code 
+Enabling Functional Programming
+
+1. Lambda Expressions
+2. Functional Interface
+3. Default Methods and static methods 
+4. Predefined functional Interface
+	Predicate
+	Function
+	Consumer
+	Supplier
+	etc
+5. Double Colon Operator (::)
+	Method reference 
+	Constructor reference 
+6. Streams
+7. Date and Time API
+8. Optional class
+9. Nashron JavaScript Engine
+etc
+
+
+1. Lambda Expressions :
+-----------------------
+1930
+LISP
+-------------------
+python 
+LISP
+C
+c++
+Ruby
+Scaler
+finally in java also
+
+The main objectives of lambda Expression :
+to bring benefits of functional programming into java. 
+
+
+What is lambda expression :
+---------------------------
+
+it is an anonymous function
+	nameless
+	without return type 
+	without modifiers
+
+Very Very Very Easy!!!!
+---------------------------------------------
+public void m1(){
+	System.out.println("Hello");
+}
+	
+	() -> System.out.println("Hello");
+
+	

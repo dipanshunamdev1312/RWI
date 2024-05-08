@@ -8,4 +8,48 @@ Vector :
 	6. Vector class implements Serializable, Cloneable and RamdomAccess Interface.
 	7. Most of the methods present in Vector are synchronized. Hence Vector object is Thread-safe.
 	8. Best choice if the frequent operation is retrieval.
-	 
+
+* Vector specific methods * 
+
+For adding objects : 
+
+	add(Object o) [from Collection - List(i)]
+	add(int index, Object o) [from List]
+	addElement(Object o0 [from Vector] 
+	
+For removing Objects :
+
+	Remove(Object o)				[from Collection]
+	removeElement(Object o) 		[from Vector]
+	remove(int index)				[from List]
+	RemoveElementAt(int index)		[from Vector]
+	clear()							[from Collection]
+	removeAllElement()				[from Vector]
+	
+For Accessing Elements : 
+
+	Object get(int index)	-C
+	Object elementAt(int index)	-V
+	Object firstElement()	-V
+	Object lastElement()	-V
+	
+Other Methods:
+
+	int size();
+	int capacity();
+	Enumeration elements();
+	
+	
+Constructors of Vector class :
+
+	1.Vector v = new Vector();
+	- Creates an empty vector object empty object with default initial capacity 10.
+	once vector reachea it's max capacity a new vector Object will be Created with new capacity = 2* current capacity.
+	
+	2.Vector v = new Vector(int initialCapacity);
+	-creates an empty Vector Object with specified initial capacity.
+	
+	3. Vector v = new Vector(int initialCapacity, int incrementalCapacity);
+	
+	4. Vector v = new Vector(Collection c);
+	-creates an equivalent vector object for the given collection.
