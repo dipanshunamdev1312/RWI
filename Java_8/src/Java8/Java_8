@@ -56,4 +56,353 @@ public void m1(){
 	
 	() -> System.out.println("Hello");
 
+
+-----------------------------------------------------------------
+
+FI : Functional Interface
+
+n->return n*n; // invalid
+n->{return n*n;};valid 
+n->{return n*n};invalid
+n->{n*n;};invalid
+n->n*n; valid
+
+without curly braces we cannot use return keyword.compilar will consider returned value automatically.
+within curly braces if we want to return some value compulsory we should use return statement.
+
+==============================================================
+
+once we write Lambda Expression 
+Functional Interfaces
+
+which contains single abstract method(SAM)
+
+Runnable ==>run()
+Callable ==> call()
+Comparable ==> compareTo()
+ActionListener ==>actionPerformed()
+
+interface Interf
+{
+	public void m1();
+}
+
+interface Interf
+{
+	public void m1();
+	default void m2(){};
+	public static void m3(){};
+}
+
+@FunctionalInterface
+interface Interf
+{
+	public void m1();
+	public void m4(); // Error . Single Abstract Method
+	default void m2(){};
+	public static void m3(){};
+}
+
+functional interface wrt inheritance : 
+--------------------------------------
+Example 1:
+
+@FunctionalInterface
+interface A
+{
+	public void m1();
+}
+
+@functionalInterface 
+interface B extends A 
+{
+	
+}
+
+Example 2:
+
+@FunctionalInterface
+interface A
+{
+	public void m1();
+}
+
+@functionalInterface 
+interface B extends A 
+{
+	public void m2(); // CE : Already parent contains Abstract method.
+}
+
+-----------------------------------------
+
+Lambda Expression with Functional Interfaces : 
+
+interface Interf
+{
+	public void m1();
+}
+class Demo implements Interf
+{
+	public void m1()
+	{
+		System.out.println("HEllo...");
+	}
+}
+class Test {
+	public static void main(String[] args)
+	{
+		Demo d = new Demo();
+		d.m1();
+	}
+}
+------------------------------------------------
+
+package Java8;
+interface Inter
+{
+	public void m1();
+}
+class Test implements Inter
+{
+	public void m1()
+	{
+		System.out.println("HEllo...");
+	}
+}
+class Demo5 {
+	public static void main(String[] args)
+	{
+		Inter i = new Test();
+		i.m1();
+	}
+}
+
+
+-------------------------------------------------
+
+
+package Java8;
+interface InterA
+{
+	public void m1();
+}
+
+class Demo6 {
+	public static void main(String[] args)
+	{
+		InterA i = ()-> System.out.println("HEllo...By Lambda Expression.");
+		i.m1();
+	}
+}
+
+
+-------------------------------------------------------
+
+interface InterB 
+{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
