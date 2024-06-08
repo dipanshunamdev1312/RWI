@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- This is our first bean -->
+<!-- value as a element -->
+	<bean class="com.springcore.Student" name="Student1">
+
+		<property name="studentId">
+			<value>22344</value>
+		</property>
+
+		<property name="studentName">
+			<value>Dipanshu Namdev</value>
+		</property>
+
+		<property name="studentAddress">
+			<value>Anjad</value>
+		</property>
+
+	</bean>
+	
+	<!-- This is our second bean -->
+	<!--Value as Attributes -->
+	<bean class="com.springcore.Student" name="Student2">
+
+		<property name="studentId" value="22345"/>
+
+		<property name="studentName" value="Shivam Namdev"/>
+
+		<property name="studentAddress" value="Anjad"/>
+			
+	</bean>
+	
+	<!-- This is our third bean -->
+	<!-- p-schema -->
+	
+	<bean class="com.springcore.Student" name="Student3" p:studentId="22346" p:studentName="shiv" p:studentAddress="Khailash Parwat"/>
+
+</beans>
