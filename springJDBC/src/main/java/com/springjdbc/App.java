@@ -25,14 +25,20 @@ public class App
 //        int result = studentDao.insert(student);
 //        
 //        System.out.println("student added : "+result);
+//        
+//        Student student = new Student();
+//        student.setId(666);
+//        student.setName("Bihari Bhaiyya");
+//        student.setCity("Chapri");
+//        
+//        int change = studentDao.change(student);
+//        
+//        System.out.println("Changing Data : "+ student);
         
-        Student student = new Student();
-        student.setId(666);
-        student.setName("Bihari Bhaiyya");
-        student.setCity("Chapri");
-        
-        int change = studentDao.change(student);
-        
-        System.out.println("Changing Data : "+ student);
+          
+          int delete = studentDao.delete(666);
+          
+          System.out.println("Deleting Data : "+delete);
+          
     }
 }
