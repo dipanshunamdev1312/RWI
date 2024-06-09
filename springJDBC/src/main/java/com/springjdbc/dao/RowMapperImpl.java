@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.springjdbc.entities.Student;
 
-public class RawMapperImpl implements RowMapper<Student>{
+public class RowMapperImpl implements RowMapper<Student>{
 
 	@Override
 	public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
