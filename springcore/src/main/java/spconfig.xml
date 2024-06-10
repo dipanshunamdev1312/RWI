@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 <!-- This is our first bean -->
-<!-- value as a element -->
+<!-- value as an element -->
 	<bean class="com.springcore.Student" name="Student1">
 
 		<property name="studentId">
